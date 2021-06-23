@@ -8,6 +8,8 @@
   --task-bg: #fff;
   --finish-btn: #66ff00;
   --delete-btn: #ff033e;
+  --switch-bg: #fafafa;
+  --dot-btn: #ffffff;
 }
 
 * {
@@ -29,13 +31,14 @@ body {
   justify-content: center;
   margin-bottom: 25px;
   width: 100%;
-  height: 50px;
+  padding: 10px;
   box-shadow: -3px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .app-title {
   font-size: 30px;
   margin: 0;
+  color: #000;
 }
 
 .container {
@@ -63,6 +66,7 @@ body {
 .add-form-title {
   height: 50px;
   border-radius: 15px;
+  color: var(--text-color);
   background-color: var(--input-bg);
   font-size: 20px;
   border: none;
@@ -131,4 +135,35 @@ body {
 
 .btn-delete {
   background-color: var(--delete-btn);
+}
+
+.switch-theme-btn {
+  cursor: pointer;
+  width: 90px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--switch-bg);
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.switch-theme-btn.active {
+  justify-content: flex-end;
+}
+
+.dot-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: var(--dot-btn);
+  transition: all 0.3s ease-in;
+}
+
+.wrapper {
+  padding: 0 30px;
+  width: 605px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
