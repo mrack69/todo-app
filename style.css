@@ -109,6 +109,7 @@ body {
 .task {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   background-color: var(--task-bg);
@@ -117,6 +118,7 @@ body {
 }
 
 .task .btn {
+  height: 40px;
   border: none;
   border-radius: 15px;
   padding: 10px;
