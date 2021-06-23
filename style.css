@@ -1,0 +1,169 @@
+:root {
+  --text-color: #000;
+  --reverse-text-color: #fff;
+  --body-bg: #fff;
+  --container-bg: #fafafa;
+  --input-bg: #fff;
+  --form-btn-bg: #2f80ed;
+  --task-bg: #fff;
+  --finish-btn: #66ff00;
+  --delete-btn: #ff033e;
+  --switch-bg: #fafafa;
+  --dot-btn: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 37px;
+  color: var(--text-color);
+  background-color: var(--body-bg);
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  width: 100%;
+  padding: 10px;
+  box-shadow: -3px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.app-title {
+  font-size: 30px;
+  margin: 0;
+  color: #000;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 605px;
+  background-color: var(--container-bg);
+  border-radius: 30px;
+  box-shadow: -3px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+.add-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: var(--form-btn-bg) solid 2px;
+}
+
+.add-form-title {
+  height: 50px;
+  border-radius: 15px;
+  color: var(--text-color);
+  background-color: var(--input-bg);
+  font-size: 20px;
+  border: none;
+  padding: 0 10px;
+  margin-right: 15px;
+  flex-grow: 1;
+}
+
+.add-form-title:focus-visible {
+  border-radius: 15px;
+  border-color: #2f80ed;
+}
+
+.add-form-btn {
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  color: var(--reverse-text-color);
+  border: none;
+  border-radius: 15px;
+  background-color: var(--form-btn-bg);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.processed,
+.finished {
+  width: 100%;
+}
+
+.finished .task {
+  text-decoration: line-through;
+}
+
+.subtitle {
+  font-size: 26px;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  background-color: var(--task-bg);
+  padding: 20px;
+  margin-bottom: 5px;
+}
+
+.task .btn {
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn-finish {
+  background-color: var(--finish-btn);
+}
+
+.btn-delete {
+  background-color: var(--delete-btn);
+}
+
+.switch-theme-btn {
+  cursor: pointer;
+  width: 90px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--switch-bg);
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.switch-theme-btn.active {
+  justify-content: flex-end;
+}
+
+.dot-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: var(--dot-btn);
+  transition: all 0.3s ease-in;
+}
+
+.wrapper {
+  padding: 0 30px;
+  width: 605px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
