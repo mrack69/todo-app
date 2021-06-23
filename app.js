@@ -1,3 +1,31 @@
+const themes = {
+  'default': {
+    '--text-color': '#000',
+    '--reverse-text-color': '#fff',
+    '--body-bg': '#fff',
+    '--container-bg': '#fafafa',
+    '--input-bg': '#fff',
+    '--form-btn-bg': '#2f80ed',
+    '--task-bg': '#fff',
+    '--finish-btn': '#66ff00',
+    '--delete-btn': '#ff033e',
+    '--switch-bg': '#fafafa',
+    '--dot-btn': '#ffffff',
+  },
+  'dark': {
+    '--text-color': '#fff',
+    '--reverse-text-color': '#000',
+    '--body-bg': '#fff',
+    '--container-bg': '#273851',
+    '--input-bg': '#3f5072',
+    '--form-btn-bg': '#2f80ed',
+    '--task-bg': '#3f5072',
+    '--finish-btn': '#66ff00',
+    '--delete-btn': '#ff033e',
+    '--switch-bg': '#3f5072',
+    '--dot-btn': '#ffffff',
+  },
+}
 const tasksList = JSON.parse(localStorage.getItem('tasks'));
 (function (tasksObj) {
   if (!tasksObj) tasksObj = {};
@@ -5,11 +33,13 @@ const tasksList = JSON.parse(localStorage.getItem('tasks'));
   const processedList = document.querySelector('.processed-list');
   const finishedList = document.querySelector('.finished-list');
   const addForm = document.querySelector('.add-form');
+  const swithThemeBtn = document.querySelector('.switch-theme-btn');
 
   window.addEventListener('beforeunload', setLocalStorage);
   addForm.addEventListener('submit', heandlerAddForm);
   processedList.addEventListener('click', heandlerFinishBtn);
   finishedList.addEventListener('click', heandlerDeleteBtn);
+  swithThemeBtn.addEventListener('click', heandleSwitchThemeBtn);
 
   renderTaskFromLocalStorage(tasksObj);
 
@@ -96,5 +126,15 @@ const tasksList = JSON.parse(localStorage.getItem('tasks'));
 
   function setLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasksObj));
+  }
+
+  function heandleSwitchThemeBtn(e) {
+    const selectedTheme = swithThemeBtn.classList.contains('active');
+    const setedTheme = selectedTheme ? 'default' : 'dark';
+    const selectedThemObj = themes[setedTheme];
+    Object.entries(selectedThemObj).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(key, value);
+    });
+    swithThemeBtn.classList.toggle('active');
   }
 })(tasksList);
